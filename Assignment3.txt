@@ -1,0 +1,160 @@
+//Extra features added semifinal option
+//Stadium Selection
+
+
+import java.util.Scanner;
+
+class Gusser
+{
+	int guessNum;  // has part
+	int guessNum()
+	{
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Please guess a number:");
+		guessNum=scan.nextInt();
+		return guessNum;
+	}
+}
+
+class Player
+{
+	int guessNum;  // has part
+	int guessNum()
+	{
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Player please guess a number:"); //player is also guessing the no.
+		guessNum=scan.nextInt();
+		return guessNum;
+	}
+
+}
+class Umpire 
+{
+	int numFromGuesser;
+	int numFromPlayer1;
+	int numFromPlayer2;
+	int numFromPlayer3;
+	
+	void collectNumFromGusser()
+	{
+		Gusser g=new Gusser();
+		numFromGuesser=g.guessNum();
+	}
+	void collectNumFromPlayer()
+	{
+		Player p1=new Player();
+		Player p2=new Player();
+		Player p3=new Player();
+		numFromPlayer1=p1.guessNum();
+		numFromPlayer2=p2.guessNum();
+		numFromPlayer3=p3.guessNum();
+		
+	}
+	void compareNum()
+	{
+		if(numFromGuesser==numFromPlayer1)
+		{	
+			if (numFromGuesser==numFromPlayer2 && numFromGuesser==numFromPlayer3)
+			{
+				System.out.println("All players won");
+			}
+			else if (numFromGuesser==numFromPlayer2)
+			{
+				System.out.println("1 and 2 won");
+			}
+			else if(numFromGuesser==numFromPlayer3)
+			{
+				System.out.println("1 and 3 won");
+			}
+			
+			else
+			{
+
+			System.out.println("Player 1 won");
+			}
+		}
+		else if (numFromGuesser==numFromPlayer2)
+		{
+			System.out.println("Player 2 won");
+		}
+		else if (numFromGuesser==numFromPlayer3)
+		{
+			System.out.println("Player 3 won");
+		}
+		
+		else
+		{
+			System.out.println("!!!!!!! Game over!!!!!!!");
+		}
+	}
+	void semiFinal()
+	{
+		if(numFromGuesser==numFromPlayer1)
+		{	
+			if (numFromGuesser==numFromPlayer2 && numFromGuesser==numFromPlayer3)
+			{
+				System.out.println("All players Qualified to semifinal");
+			}
+			else if (numFromGuesser==numFromPlayer2)
+			{
+				System.out.println("1 and 2 Qualified to semifinal");
+			}
+			else if(numFromGuesser==numFromPlayer3)
+			{
+				System.out.println("1 and 3 Qualified to semifinal");
+			}
+			
+			else
+			{
+
+			System.out.println("Player Qualified to semifinal");
+			}
+		}	
+	}
+	void stadium()
+	{
+		Scanner sc = new Scanner(System.in);
+
+        int variable;
+        System.out.println("Please Select the Stadium: "
+        		+ "1.Moali "
+        		+ "2.Pne "
+        		+ "3.Gujarat "
+        		+ "4.Bangalore");
+        
+        variable=sc.nextInt();
+
+        switch(variable)
+        {
+            case 1:
+            System.out.println("Mohali Stadium is selected for Semifinal ");
+            break;
+            case 2:
+            System.out.println("Pune Stadium is selected for Semifinal");
+            break;
+            case 3:
+            System.out.println("Guarat Stadium is selected for Semifinal");
+            break;
+            case 4:
+            System.out.println("Bangalore Stadium is selected for Semifinal");
+        }
+		
+	}
+	
+	
+}
+public class GusserGame {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Umpire u=new Umpire();
+		u.collectNumFromGusser();
+		u.collectNumFromPlayer();
+		u.compareNum();
+		u.semiFinal();
+		u.stadium();
+		
+	}
+
+}
+
